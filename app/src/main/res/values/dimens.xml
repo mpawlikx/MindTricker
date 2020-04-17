@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="menuButtonTextSize">20sp</dimen>
+    <dimen name="horizontalPadding">50dp</dimen>
+    <dimen name="menuButtonSize">200dp</dimen>
+    <dimen name="menuButtonMargin">20dp</dimen>
+</resources>
