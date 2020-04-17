@@ -11,6 +11,8 @@
         android:layout_height="wrap_content"
         android:textSize="@dimen/menuButtonTextSize"
         android:text="@string/about_activity_text"
+        android:layout_marginLeft="@dimen/menuButtonMargin"
+        android:layout_marginRight="@dimen/menuButtonMargin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
