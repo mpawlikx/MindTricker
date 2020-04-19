@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GameActivity"
-    android:background="@color/colorAccent">
+    android:background="@color/colorAccent"
+    tools:context=".GameActivity">
+
 
     <TextView
         android:id="@+id/gameText"
@@ -22,9 +23,9 @@
         android:id="@+id/timeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="time"
-        android:layout_marginTop="@dimen/gameButtonMargin"
         android:layout_marginStart="@dimen/gameButtonMargin"
+        android:layout_marginTop="@dimen/gameButtonMargin"
+        android:text="time"
         android:textSize="@dimen/menuButtonTextSize"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,23 +43,23 @@
 
     <Button
         android:id="@+id/wrongButton"
-        android:padding="@dimen/gameButtonMargin"
-        android:text="@string/wrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/gameButtonMargin"
         android:layout_marginBottom="@dimen/gameButtonMargin"
+        android:padding="@dimen/gameButtonMargin"
+        android:text="@string/wrong"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/correctButton"
-        android:padding="@dimen/gameButtonMargin"
-        android:text="@string/correct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/gameButtonMargin"
         android:layout_marginBottom="@dimen/gameButtonMargin"
+        android:padding="@dimen/gameButtonMargin"
+        android:text="@string/correct"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

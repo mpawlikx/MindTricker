@@ -1,10 +1,12 @@
 package com.example.mindtricker
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_game.*
 import java.security.SecureRandom
+import kotlin.math.abs
 
 class GameActivity : AppCompatActivity() {
 
@@ -16,8 +18,11 @@ class GameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game)
         initializeAvailableColors()
 
+        randomizeValues()
+
         gameText.setOnClickListener {
-            Toast.makeText(this, SecureRandom().nextBoolean().toString(), Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, SecureRandom().nextBoolean().toString(), Toast.LENGTH_SHORT).show()
+            randomizeValues()
         }
     }
 
@@ -27,22 +32,31 @@ class GameActivity : AppCompatActivity() {
             resources.getString(R.string.green), resources.getString(R.string.red)
         )
 
-        colorValues = arrayOf(R.color.white, R.color.blue, R.color.green, R.color.red)
+        colorValues = arrayOf(
+            resources.getColor(R.color.white), resources.getColor(R.color.blue),
+            resources.getColor(R.color.green), resources.getColor(R.color.red)
+        )
     }
 
-    private fun randomizeValues (){
-       // val randomNumber: Int = Math.random()
-
-        if(SecureRandom().nextBoolean()) {
-
+    private fun randomizeValues() {
+        if (SecureRandom().nextBoolean()) {
+            val randomIndex = abs(SecureRandom().nextInt()) % 4
+            setTextValues(colorNames[randomIndex], colorValues[randomIndex])
         } else {
+            val firstIndex = abs(SecureRandom().nextInt()) % 4
+            var secondIndex: Int
+            
+            do {
+                secondIndex = abs(SecureRandom().nextInt()) % 4
+            } while (secondIndex == firstIndex)
 
+            setTextValues(colorNames[firstIndex], colorValues[secondIndex])
         }
 
     }
 
-    private fun setTextValues(colorName: String, color: Int) {
-        gameText.text = colorName
+    private fun setTextValues(text: String, color: Int) {
+        gameText.text = text
         gameText.setTextColor(color)
     }
 
