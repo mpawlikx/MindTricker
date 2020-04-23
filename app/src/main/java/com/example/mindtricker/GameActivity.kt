@@ -3,6 +3,7 @@ package com.example.mindtricker
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_game.*
 import java.security.SecureRandom
@@ -18,13 +19,38 @@ class GameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game)
         initializeAvailableColors()
 
-        randomizeValues()
+        // todo pierwszy timer, uruchomić w onfinish wywołać metodę inittimer i
+        initTimer()
 
         gameText.setOnClickListener {
 //            Toast.makeText(this, SecureRandom().nextBoolean().toString(), Toast.LENGTH_SHORT).show()
             randomizeValues()
+
+
         }
     }
+
+
+    private fun initTimer() {
+
+        val timer = object : CountDownTimer(10000, 10) {
+            override fun onTick(millisUntilFinished: Long) {
+                timeText.text = "${millisUntilFinished / 1000}:${millisUntilFinished % 1000}"
+            }
+
+            override fun onFinish() {
+                Toast.makeText(
+                    this@GameActivity,
+                    SecureRandom().nextBoolean().toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
+                timeText.text = "0:0"
+                //todo zakończenie  gry, wyświetlenie wyniku, możliwość zapisania wyniku
+            }
+        }
+        timer.start()
+    }
+
 
     private fun initializeAvailableColors() {
         colorNames = arrayOf(
@@ -45,7 +71,7 @@ class GameActivity : AppCompatActivity() {
         } else {
             val firstIndex = abs(SecureRandom().nextInt()) % 4
             var secondIndex: Int
-            
+
             do {
                 secondIndex = abs(SecureRandom().nextInt()) % 4
             } while (secondIndex == firstIndex)
