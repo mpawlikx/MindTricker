@@ -49,6 +49,7 @@
         android:layout_marginBottom="@dimen/gameButtonMargin"
         android:padding="@dimen/gameButtonMargin"
         android:text="@string/wrong"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -60,6 +61,7 @@
         android:layout_marginBottom="@dimen/gameButtonMargin"
         android:padding="@dimen/gameButtonMargin"
         android:text="@string/correct"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
