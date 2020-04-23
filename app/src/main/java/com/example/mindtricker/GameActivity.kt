@@ -19,17 +19,29 @@ class GameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game)
         initializeAvailableColors()
 
-        // todo pierwszy timer, uruchomić w onfinish wywołać metodę inittimer i
-        initTimer()
+        splashTimer()
 
         gameText.setOnClickListener {
 //            Toast.makeText(this, SecureRandom().nextBoolean().toString(), Toast.LENGTH_SHORT).show()
-            randomizeValues()
 
 
         }
     }
 
+    private fun splashTimer() {
+
+        val timer = object : CountDownTimer(4000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                gameText.text = "${millisUntilFinished / 1000} ..."
+            }
+
+            override fun onFinish() {
+                initTimer()
+                randomizeValues()
+            }
+        }
+        timer.start()
+    }
 
     private fun initTimer() {
 
@@ -45,7 +57,7 @@ class GameActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
                 timeText.text = "0:0"
-                //todo zakończenie  gry, wyświetlenie wyniku, możliwość zapisania wyniku
+                gameText.text=" oo "// todo komunikat o ilości punktów
             }
         }
         timer.start()
