@@ -4,4 +4,7 @@
     <dimen name="horizontalPadding">50dp</dimen>
     <dimen name="menuButtonSize">200dp</dimen>
     <dimen name="menuButtonMargin">20dp</dimen>
+
+    <dimen name="gameTextSize">40dp</dimen>
+    <dimen name="gameButtonMargin">32dp</dimen>
 </resources>

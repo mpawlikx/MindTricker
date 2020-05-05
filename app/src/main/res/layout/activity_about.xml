@@ -7,13 +7,26 @@
     tools:context=".AboutActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/menuButtonTextSize"
+        android:layout_marginLeft="@dimen/menuButtonMargin"
+        android:layout_marginRight="@dimen/menuButtonMargin"
         android:text="@string/about_activity_text"
+        android:textSize="@dimen/menuButtonTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/app_icon"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
