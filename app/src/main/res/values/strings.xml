@@ -5,7 +5,7 @@
     <string name="settings_text">Settings</string>
     <string name="about_text">About</string>
     <string name="exit_text">Exit</string>
-    <string name="about_activity_text">Some information about the app and what is doing</string>
+    <string name="about_activity_text">MindTricker v.0.1</string>
 
     <string name="white">White</string>
     <string name="blue">Blue</string>

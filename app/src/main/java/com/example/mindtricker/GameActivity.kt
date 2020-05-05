@@ -38,9 +38,9 @@ class GameActivity : AppCompatActivity() {
 
     private fun splashTimer() {
 
-        val timer = object : CountDownTimer(4000, 1000) {
+        val timer = object : CountDownTimer(3000, 10) {
             override fun onTick(millisUntilFinished: Long) {
-                gameText.text = "${millisUntilFinished / 1000} ..."
+                gameText.text = "${(millisUntilFinished / 1000)+1} ..."
             }
 
             override fun onFinish() {
