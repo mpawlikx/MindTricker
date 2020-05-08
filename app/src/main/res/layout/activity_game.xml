@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/gameButtonMargin"
         android:layout_marginTop="@dimen/gameButtonMargin"
-        android:text="time"
+        android:text="@string/time_text"
         android:textSize="@dimen/menuButtonTextSize"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/gameButtonMargin"
         android:layout_marginEnd="@dimen/gameButtonMargin"
-        android:text="points"
+        android:text="@string/points_text"
         android:textSize="@dimen/menuButtonTextSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,6 +64,53 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:paddingVertical="100dp"
+        android:paddingHorizontal="100dp"
+        android:hint="@string/edit_text_name"
+        android:id="@+id/playerNameEditText"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/endGameText"
+        app:layout_constraintBottom_toTopOf="@+id/gameText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/end_game_text"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="136dp"
+        android:padding="@dimen/gameButtonMargin"
+        android:text="@string/save_button__text"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/test_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="485dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

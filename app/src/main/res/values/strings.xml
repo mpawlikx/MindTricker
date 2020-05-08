@@ -6,6 +6,15 @@
     <string name="about_text">About</string>
     <string name="exit_text">Exit</string>
     <string name="about_activity_text">MindTricker v.0.1</string>
+    <string name="points_text">POINTS</string>
+    <string name="time_text">TIME</string>
+    <string name="save_button__text">SAVE</string>
+    <string name="edit_text_name">Enter Name</string>
+
+
+
+    <string name="player_name">Write your name here</string>
+    <string name="end_game_text">Write Your name down here</string>
 
     <string name="white">White</string>
     <string name="blue">Blue</string>
