@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         rankingButton.setOnClickListener {
-            Toast.makeText(this, "Not implemented yet", Toast.LENGTH_SHORT).show()
+            openRankingActivity()
         }
 
         settingsButton.setOnClickListener {
@@ -43,6 +43,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun openAboutActivity() {
         val intent = Intent(this, AboutActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun openRankingActivity() {
+        val intent=Intent(this,RankingActivity::class.java)
         startActivity(intent)
     }
 }

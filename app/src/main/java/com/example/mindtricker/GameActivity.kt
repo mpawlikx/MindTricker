@@ -27,19 +27,6 @@ class GameActivity : AppCompatActivity() {
         initializeAvailableColors()
 
 
-        val sharedPreferences = getSharedPreferences("player_names",Context.MODE_PRIVATE)
-        saveButton.setOnClickListener {
-            val name= playerNameEditText.text.toString().trim()
-            val points = Integer.parseInt(pointsText.text.toString().trim())
-            val editor = sharedPreferences.edit()
-            editor.putString("NAME",name)
-            editor.putInt("POINTS", points)
-            editor.apply()
-            val aname = sharedPreferences.getString("NAME","")
-            val apoints = sharedPreferences.getInt("POINTS",0)
-            test_text.text="Name: $name\nPoints: $points"
-        }
-
         splashTimer()
 
         correctButton.setOnClickListener {
@@ -89,8 +76,8 @@ class GameActivity : AppCompatActivity() {
                 endGameText.visibility =View.VISIBLE
                 wrongButton.visibility= View.INVISIBLE
                 correctButton.visibility= View.INVISIBLE
-                playerNameEditText.visibility= View.VISIBLE
-                saveButton.visibility= View.VISIBLE
+
+                rankingSystem()
 
             }
         }
@@ -157,5 +144,24 @@ class GameActivity : AppCompatActivity() {
         randomizeValues()
     }
 
+
+    public fun rankingSystem() {
+        playerNameEditText.visibility= View.VISIBLE
+        saveButton.visibility= View.VISIBLE
+        val sharedPreferences = getSharedPreferences("player_names", Context.MODE_PRIVATE)
+        saveButton.setOnClickListener {
+            val name = playerNameEditText.text.toString().trim()
+            val points = Integer.parseInt(pointsText.text.toString().trim())
+            val editor = sharedPreferences.edit()
+            editor.putString("NAME", name)
+            editor.putInt("POINTS", points)
+            editor.apply()
+        }
+        show_info_button.setOnClickListener {
+            val name = sharedPreferences.getString("NAME", "")
+            val points = sharedPreferences.getInt("POINTS", 0)
+            test_text.text = "Name: $name\nPoints: $points"
+        }
+    }
 }
 // niebieski, zielony, czerwony, pomarańczowy, różowy, żółty, czarny
