@@ -66,29 +66,28 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:layout_width="wrap_content"
-        android:paddingVertical="50dp"
-        android:paddingHorizontal="50dp"
-        android:hint="@string/edit_text_name"
         android:id="@+id/playerNameEditText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="@string/edit_text_name"
         android:inputType="text"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="50dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="invisible"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/endGameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/endGameText"
+        android:text="@string/end_game_text"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/gameText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="@string/end_game_text"
-        android:visibility="invisible"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/saveButton"
@@ -102,24 +101,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/test_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/gameText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/show_info_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="show info"
-        tools:layout_editor_absoluteX="279dp"
-        tools:layout_editor_absoluteY="204dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

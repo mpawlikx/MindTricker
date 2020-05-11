@@ -1,6 +1,7 @@
 package com.example.mindtricker
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,11 @@ import java.security.SecureRandom
 import kotlin.math.abs
 
 class GameActivity : AppCompatActivity() {
+
+    companion object{
+        public val USER_NAME_TAG="user_name"
+        public val USER_POINTS_TAG="user_points"
+    }
 
     private lateinit var colorNames: Array<String>
     private lateinit var colorValues: Array<Int>
@@ -45,14 +51,14 @@ class GameActivity : AppCompatActivity() {
 
         val timer = object : CountDownTimer(3000, 10) {
             override fun onTick(millisUntilFinished: Long) {
-                gameText.text = "${(millisUntilFinished / 1000)+1} ..."
+                gameText.text = "${(millisUntilFinished / 1000) + 1} ..."
             }
 
             override fun onFinish() {
                 initTimer()
                 randomizeValues()
-                wrongButton.visibility= View.VISIBLE
-                correctButton.visibility= View.VISIBLE
+                wrongButton.visibility = View.VISIBLE
+                correctButton.visibility = View.VISIBLE
             }
         }
         timer.start()
@@ -72,10 +78,10 @@ class GameActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
                 timeText.text = "0:0"
-                gameText.visibility= View.INVISIBLE // todo komunikat o ilości punktów
-                endGameText.visibility =View.VISIBLE
-                wrongButton.visibility= View.INVISIBLE
-                correctButton.visibility= View.INVISIBLE
+                gameText.visibility = View.INVISIBLE // todo komunikat o ilości punktów
+                endGameText.visibility = View.VISIBLE
+                wrongButton.visibility = View.INVISIBLE
+                correctButton.visibility = View.INVISIBLE
 
                 rankingSystem()
 
@@ -98,7 +104,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun randomizeValues() {
-        isCorrect=SecureRandom().nextBoolean()
+        isCorrect = SecureRandom().nextBoolean()
         if (isCorrect) {
             val randomIndex = abs(SecureRandom().nextInt()) % 4
             setTextValues(colorNames[randomIndex], colorValues[randomIndex])
@@ -132,7 +138,6 @@ class GameActivity : AppCompatActivity() {
     }
 
 
-
     private fun wrongButtonActivate() {
         if (isCorrect) {
             points -= 2
@@ -145,23 +150,33 @@ class GameActivity : AppCompatActivity() {
     }
 
 
-    public fun rankingSystem() {
-        playerNameEditText.visibility= View.VISIBLE
-        saveButton.visibility= View.VISIBLE
-        val sharedPreferences = getSharedPreferences("player_names", Context.MODE_PRIVATE)
+    private fun rankingSystem() {
+        playerNameEditText.visibility = View.VISIBLE
+        saveButton.visibility = View.VISIBLE
+        /* val sharedPreferences = getSharedPreferences("player_names", Context.MODE_PRIVATE)
+         val editor = sharedPreferences.edit()
+             editor.putString("NAME", name)
+             editor.putInt("POINTS", points)
+             editor.apply()*/
         saveButton.setOnClickListener {
             val name = playerNameEditText.text.toString().trim()
-            val points = Integer.parseInt(pointsText.text.toString().trim())
-            val editor = sharedPreferences.edit()
-            editor.putString("NAME", name)
-            editor.putInt("POINTS", points)
-            editor.apply()
+            playerNameEditText.visibility = View.GONE
+            saveButton.visibility = View.GONE
+            openRankingActivity(name, points)
         }
-        show_info_button.setOnClickListener {
+        /*show_info_button.setOnClickListener {
             val name = sharedPreferences.getString("NAME", "")
             val points = sharedPreferences.getInt("POINTS", 0)
             test_text.text = "Name: $name\nPoints: $points"
-        }
+        }*/
+    }
+
+    private fun openRankingActivity(name: String, points: Int) {
+        val intent = Intent(this, RankingActivity::class.java)
+        intent.putExtra(USER_NAME_TAG, name)
+        intent.putExtra(USER_POINTS_TAG, points)
+        startActivity(intent)
+        finish()
     }
 }
 // niebieski, zielony, czerwony, pomarańczowy, różowy, żółty, czarny
