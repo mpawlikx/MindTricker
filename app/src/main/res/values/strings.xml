@@ -8,7 +8,7 @@
     <string name="about_activity_text">MindTricker v.0.1</string>
     <string name="points_text">POINTS</string>
     <string name="time_text">TIME</string>
-    <string name="save_button__text">SAVE</string>
+    <string name="save_button_text">SAVE</string>
     <string name="edit_text_name">Enter Name</string>
 
 
@@ -21,5 +21,7 @@
     <string name="red">Red</string>
     <string name="correct">Correct</string>
     <string name="wrong">Wrong</string>
+    <string name="ranking_row">Name: %s     Result: %s</string>
+
 
 </resources>

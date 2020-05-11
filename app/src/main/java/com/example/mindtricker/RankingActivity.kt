@@ -48,7 +48,8 @@ class RankingActivity : AppCompatActivity() {
 
 
         if (rankingJson != null) {
-            recordList=gson.fromJson(rankingJson,object:TypeToken<MutableList<UserModel>>() {}.type)
+            recordList =
+                gson.fromJson(rankingJson, object : TypeToken<MutableList<UserModel>>() {}.type)
 
 
         }
@@ -56,21 +57,30 @@ class RankingActivity : AppCompatActivity() {
         if (lastName != null && lastPoints != null) {
             recordList.add(UserModel(lastName, lastPoints))
             val editor = sharedPreferences.edit()
-            editor.putString("rankingJson",gson.toJson(recordList))
+            editor.putString("rankingJson", gson.toJson(recordList))
             editor.apply()
 
         }
 
         recordList.sortByDescending { it.userPoints }
-        if (recordList.size>=1) {
-            first_score_text.text =
-                "Name: ${recordList[0].userName}     Result: ${recordList[0].userPoints}"
-            if (recordList.size>=2) {
-                second_score_text.text =
-                    "Name: ${recordList[1].userName}     Result: ${recordList[1].userPoints}"
-                if (recordList.size>=3) {
-                    third_score_text.text =
-                        "Name: ${recordList[2].userName}     Result: ${recordList[2].userPoints}"
+        if (recordList.size >= 1) {
+            first_score_text.text = String.format(
+                getString(R.string.ranking_row),
+                recordList[0].userName,
+                recordList[0].userPoints
+            )
+            if (recordList.size >= 2) {
+                second_score_text.text = String.format(
+                    getString(R.string.ranking_row),
+                    recordList[1].userName,
+                    recordList[1].userPoints
+                )
+                if (recordList.size >= 3) {
+                    third_score_text.text = String.format(
+                        getString(R.string.ranking_row),
+                        recordList[2].userName,
+                        recordList[2].userPoints
+                    )
                 } else {
                     third_score_text.visibility = View.GONE
                 }
