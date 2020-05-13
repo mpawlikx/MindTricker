@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openRankingActivity() {
-        val intent=Intent(this,RankingActivity::class.java)
+        val intent = Intent(this, RankingActivity::class.java)
         startActivity(intent)
     }
 }

@@ -17,9 +17,9 @@ import kotlin.math.abs
 
 class GameActivity : AppCompatActivity() {
 
-    companion object{
-        public val USER_NAME_TAG="user_name"
-        public val USER_POINTS_TAG="user_points"
+    companion object {
+        public val USER_NAME_TAG = "user_name"
+        public val USER_POINTS_TAG = "user_points"
     }
 
     private lateinit var colorNames: Array<String>
@@ -78,7 +78,7 @@ class GameActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
                 timeText.text = "0:0"
-                gameText.visibility = View.INVISIBLE // todo komunikat o ilości punktów
+                gameText.visibility = View.INVISIBLE
                 endGameText.visibility = View.VISIBLE
                 wrongButton.visibility = View.INVISIBLE
                 correctButton.visibility = View.INVISIBLE
@@ -179,4 +179,3 @@ class GameActivity : AppCompatActivity() {
         finish()
     }
 }
-// niebieski, zielony, czerwony, pomarańczowy, różowy, żółty, czarny
