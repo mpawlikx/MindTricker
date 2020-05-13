@@ -3,7 +3,6 @@ package com.example.mindtricker
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,10 +18,6 @@ class MainActivity : AppCompatActivity() {
 
         rankingButton.setOnClickListener {
             openRankingActivity()
-        }
-
-        settingsButton.setOnClickListener {
-            Toast.makeText(this, "Not implemented yet", Toast.LENGTH_SHORT).show()
         }
 
         aboutButton.setOnClickListener {

@@ -72,14 +72,13 @@ class GameActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                Toast.makeText(
+               /* Toast.makeText(
                     this@GameActivity,
                     SecureRandom().nextBoolean().toString(),
                     Toast.LENGTH_SHORT
-                ).show()
+                ).show()*/
                 timeText.text = "0:0"
                 gameText.visibility = View.INVISIBLE
-                endGameText.visibility = View.VISIBLE
                 wrongButton.visibility = View.INVISIBLE
                 correctButton.visibility = View.INVISIBLE
 

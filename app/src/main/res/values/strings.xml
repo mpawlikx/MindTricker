@@ -9,6 +9,8 @@
     <string name="time_text">TIME</string>
     <string name="save_button_text">SAVE</string>
     <string name="edit_text_name">Enter Name</string>
+    <string name="to_manu">Back</string>
+
 
 
     <string name="player_name">Write your name here</string>
