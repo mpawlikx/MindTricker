@@ -5,13 +5,12 @@
     <string name="ranking_text">Ranking</string>
     <string name="about_text">O aplikacji</string>
     <string name="exit_text">Wyjście</string>
-    <string name="about_activity_text">MindTricker v.1.0</string>
+    <string name="about_activity_text">MindTricker v.%s</string>
     <string name="points_text">Punkty</string>
     <string name="time_text">Czas</string>
     <string name="save_button_text">Zapisz</string>
     <string name="edit_text_name">Wpisz nazwę</string>
     <string name="to_manu">Powrót</string>
-
 
     <string name="player_name">Write your name here</string>
     <string name="end_game_text">Write Your name down here</string>

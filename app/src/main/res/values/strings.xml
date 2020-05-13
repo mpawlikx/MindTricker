@@ -4,14 +4,12 @@
     <string name="ranking_text">Ranking</string>
     <string name="about_text">About</string>
     <string name="exit_text">Exit</string>
-    <string name="about_activity_text">MindTricker v.1.0</string>
+    <string name="about_activity_text">MindTricker v.%s</string>
     <string name="points_text">POINTS</string>
     <string name="time_text">TIME</string>
     <string name="save_button_text">SAVE</string>
     <string name="edit_text_name">Enter Name</string>
     <string name="to_manu">Back</string>
-
-
 
     <string name="player_name">Write your name here</string>
     <string name="end_game_text">Write Your name down here</string>
@@ -23,6 +21,5 @@
     <string name="correct">Correct</string>
     <string name="wrong">Wrong</string>
     <string name="ranking_row">Name: %s     Result: %s</string>
-
 
 </resources>

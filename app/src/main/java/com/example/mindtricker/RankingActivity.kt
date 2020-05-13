@@ -1,10 +1,9 @@
 package com.example.mindtricker
 
 import android.content.Context
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mindtricker.GameActivity.Companion.USER_NAME_TAG
 import com.example.mindtricker.GameActivity.Companion.USER_POINTS_TAG
 import com.example.mindtricker.models.UserModel
@@ -15,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_ranking.*
 class RankingActivity : AppCompatActivity() {
     var recordList = mutableListOf<UserModel>()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ranking)
@@ -25,19 +23,14 @@ class RankingActivity : AppCompatActivity() {
         menuButton.setOnClickListener {
             openMainMenu()
         }
-
-
     }
-
 
     private fun parseExtras() {
         val extras = intent.extras
         if (extras != null) {
             loadRanking(extras.getString(USER_NAME_TAG), extras.getInt(USER_POINTS_TAG))
-
         } else {
             loadRanking(null, null)
-
         }
     }
 
@@ -46,12 +39,9 @@ class RankingActivity : AppCompatActivity() {
         val rankingJson = sharedPreferences.getString("rankingJson", null)
         val gson = Gson()
 
-
         if (rankingJson != null) {
             recordList =
                 gson.fromJson(rankingJson, object : TypeToken<MutableList<UserModel>>() {}.type)
-
-
         }
 
         if (lastName != null && lastPoints != null) {
@@ -59,7 +49,6 @@ class RankingActivity : AppCompatActivity() {
             val editor = sharedPreferences.edit()
             editor.putString("rankingJson", gson.toJson(recordList))
             editor.apply()
-
         }
 
         recordList.sortByDescending { it.userPoints }
@@ -93,12 +82,9 @@ class RankingActivity : AppCompatActivity() {
             second_score_text.visibility = View.GONE
             third_score_text.visibility = View.GONE
         }
-
-
     }
 
     private fun openMainMenu() {
         finish()
-
     }
 }

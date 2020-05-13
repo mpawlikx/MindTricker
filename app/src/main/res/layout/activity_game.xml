@@ -7,7 +7,6 @@
     android:background="@color/colorAccent"
     tools:context=".GameActivity">
 
-
     <TextView
         android:id="@+id/gameText"
         android:layout_width="wrap_content"
@@ -79,7 +78,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+    <Button
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,6 +90,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

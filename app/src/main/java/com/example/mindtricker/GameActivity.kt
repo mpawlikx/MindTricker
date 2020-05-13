@@ -1,16 +1,10 @@
 package com.example.mindtricker
 
-import android.content.Context
 import android.content.Intent
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
-import androidx.annotation.IntegerRes
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_game.*
 import java.security.SecureRandom
 import kotlin.math.abs
@@ -32,7 +26,6 @@ class GameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game)
         initializeAvailableColors()
 
-
         splashTimer()
 
         correctButton.setOnClickListener {
@@ -41,14 +34,9 @@ class GameActivity : AppCompatActivity() {
         wrongButton.setOnClickListener {
             wrongButtonActivate()
         }
-
-        //  gameText.setOnClickListener {
-//            Toast.makeText(this, SecureRandom().nextBoolean().toString(), Toast.LENGTH_SHORT).show()
-        //  }
     }
 
     private fun splashTimer() {
-
         val timer = object : CountDownTimer(3000, 10) {
             override fun onTick(millisUntilFinished: Long) {
                 gameText.text = "${(millisUntilFinished / 1000) + 1} ..."
@@ -65,30 +53,22 @@ class GameActivity : AppCompatActivity() {
     }
 
     private fun initTimer() {
-
         val timer = object : CountDownTimer(10000, 10) {
             override fun onTick(millisUntilFinished: Long) {
                 timeText.text = "${millisUntilFinished / 1000}:${millisUntilFinished % 1000}"
             }
 
             override fun onFinish() {
-               /* Toast.makeText(
-                    this@GameActivity,
-                    SecureRandom().nextBoolean().toString(),
-                    Toast.LENGTH_SHORT
-                ).show()*/
                 timeText.text = "0:0"
                 gameText.visibility = View.INVISIBLE
                 wrongButton.visibility = View.INVISIBLE
                 correctButton.visibility = View.INVISIBLE
 
                 rankingSystem()
-
             }
         }
         timer.start()
     }
-
 
     private fun initializeAvailableColors() {
         colorNames = arrayOf(
@@ -117,7 +97,6 @@ class GameActivity : AppCompatActivity() {
 
             setTextValues(colorNames[firstIndex], colorValues[secondIndex])
         }
-
     }
 
     private fun setTextValues(text: String, color: Int) {
@@ -136,7 +115,6 @@ class GameActivity : AppCompatActivity() {
         randomizeValues()
     }
 
-
     private fun wrongButtonActivate() {
         if (isCorrect) {
             points -= 2
@@ -148,26 +126,15 @@ class GameActivity : AppCompatActivity() {
         randomizeValues()
     }
 
-
     private fun rankingSystem() {
         playerNameEditText.visibility = View.VISIBLE
         saveButton.visibility = View.VISIBLE
-        /* val sharedPreferences = getSharedPreferences("player_names", Context.MODE_PRIVATE)
-         val editor = sharedPreferences.edit()
-             editor.putString("NAME", name)
-             editor.putInt("POINTS", points)
-             editor.apply()*/
         saveButton.setOnClickListener {
             val name = playerNameEditText.text.toString().trim()
             playerNameEditText.visibility = View.GONE
             saveButton.visibility = View.GONE
             openRankingActivity(name, points)
         }
-        /*show_info_button.setOnClickListener {
-            val name = sharedPreferences.getString("NAME", "")
-            val points = sharedPreferences.getInt("POINTS", 0)
-            test_text.text = "Name: $name\nPoints: $points"
-        }*/
     }
 
     private fun openRankingActivity(name: String, points: Int) {
